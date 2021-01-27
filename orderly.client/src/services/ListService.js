@@ -21,5 +21,9 @@ class ListService {
     AppState.lists.push(res.data)
     return res.data.id
   }
+
+  async deleteList(listId) {
+    await api.delete('api/lists/' + listId)
+  }
 }
 export const listService = new ListService()

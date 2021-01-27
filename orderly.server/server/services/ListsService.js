@@ -2,6 +2,10 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class ListsService {
+  async getListsByBoardId(boardId) {
+    return await dbContext.List.find({ boardId: boardId })
+  }
+
   async find(query = {}) {
     return await dbContext.List.find(query)
   }

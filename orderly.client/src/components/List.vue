@@ -24,7 +24,7 @@
         </button>
       </form>
       <div class="d-flex display-block bg-light">
-        <button class="btn btn-danger ml-auto">
+        <button class="btn btn-danger ml-auto" v-if="state.account.id == listProp.creatorId" @click="deleteList()">
           Delete List
         </button>
       </div>
@@ -33,11 +33,33 @@
 </template>
 
 <script>
-
+import { reactive, computed } from 'vue'
+import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
+import { listService } from '../services/ListService'
+// import { useRoute } from 'vue-router'
 export default {
   name: 'List',
   props: {
     listProp: { type: Object, required: true }
+  },
+  setup(props) {
+    // const route = useRoute()
+    const state = reactive({
+      account: computed(() => AppState.account),
+      user: computed(() => AppState.user)
+    })
+    return {
+      state,
+
+      async deleteList() {
+        try {
+          await listService.deleteList(props.listProp.id)
+        } catch (error) {
+          logger.error(error)
+        }
+      }
+    }
   }
 }
 </script>
