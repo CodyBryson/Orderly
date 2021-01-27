@@ -18,8 +18,8 @@
         Create List
       </button>
     </form>
-    <div class="col">
-      <!--Lists go here-->
+    <div class="row flex-row">
+      <List v-for="list in state.lists" :key="list.id" :list-prop="list" />
     </div>
   </div>
 </template>
@@ -40,11 +40,13 @@ export default {
       user: computed(() => AppState.user),
       activeBoard: computed(() => AppState.activeBoard),
       newList: {},
+      lists: computed(() => AppState.lists),
       loaded: false
     })
     onMounted(async() => {
       try {
         await boardService.getOne(route.params.id)
+        await listService.getLists(route.params.id)
       } catch (error) {
         logger.error(error)
       } finally {
