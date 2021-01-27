@@ -3,8 +3,8 @@ import { AppState } from '../AppState'
 import { api } from './AxiosService'
 
 class ListService {
-  async getLists() {
-    const res = await api.get('api/lists/')
+  async getLists(id) {
+    const res = await api.get(`api/boards/${id}/lists`)
     console.log(res)
     AppState.lists = res.data
   }
