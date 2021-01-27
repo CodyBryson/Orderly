@@ -1,8 +1,22 @@
 <template>
-  <div class="BoardPage d-flex flex-grow-1 bg-dark" v-if="board.id">
+  <div class="BoardPage d-flex flex-column flex-grow-1 bg-dark" v-if="board.id">
     <h1 class="customFont text-primary m-2">
       <u>{{ board.title }}</u>
     </h1>
+    <form class="form-inline" @submit.prevent="createList">
+      <div class="form-group">
+        <input type="text"
+               name="createList"
+               id="createList"
+               class="form-control"
+               placeholder="List Name..."
+               aria-describedby="helpId"
+        >
+      </div>
+      <button type="submit" class="btn btn-secondary">
+        Create List
+      </button>
+    </form>
     <div class="col">
       <!--Lists go here-->
     </div>
