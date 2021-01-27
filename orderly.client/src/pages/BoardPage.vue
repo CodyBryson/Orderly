@@ -39,7 +39,7 @@ export default {
     const state = reactive({
       user: computed(() => AppState.user),
       activeBoard: computed(() => AppState.activeBoard),
-      newList: {},
+      newList: { boardId: route.params.id },
       lists: computed(() => AppState.lists),
       tasks: computed(() => AppState.tasks),
       loaded: false
