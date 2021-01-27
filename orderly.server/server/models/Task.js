@@ -4,7 +4,6 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 
 const Task = new Schema(
   {
-    id: { type: String, required: true },
     list: { type: ObjectId, ref: 'List', required: true },
     body: { type: String, required: true },
     creatorId: { type: String, required: true }

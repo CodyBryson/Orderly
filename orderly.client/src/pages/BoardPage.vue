@@ -14,7 +14,7 @@
                v-model="state.newList.title"
         >
       </div>
-      <button type="submit" class="btn btn-secondary">
+      <button type="submit" class="btn btn-secondary mx-1">
         Create List
       </button>
     </form>
@@ -41,6 +41,7 @@ export default {
       activeBoard: computed(() => AppState.activeBoard),
       newList: {},
       lists: computed(() => AppState.lists),
+      tasks: computed(() => AppState.tasks),
       loaded: false
     })
     onMounted(async() => {

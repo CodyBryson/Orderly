@@ -6,9 +6,23 @@
           <u>{{ listProp.title }}</u>
         </h4>
         <ul>
-        <!--Tasks go here as <li> tags-->
+          <!-- <Task v-for="task in state.tasks" :key="task.id" :task-prop="task" /> -->
         </ul>
       </div>
+      <form class="form-inline bg-light">
+        <div class="form-group">
+          <input type="text"
+                 name="createList"
+                 id="createList"
+                 class="form-control"
+                 placeholder="Add a task..."
+                 aria-describedby="helpId"
+          >
+        </div>
+        <button type="submit" class="btn btn-secondary m-1">
+          Create Task
+        </button>
+      </form>
     </div>
   </div>
 </template>
