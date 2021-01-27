@@ -26,6 +26,7 @@ export class ListsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
+      req.body.creatorId = req.userInfo.id
       const data = await listsService.find(req.query)
       res.send(data)
     } catch (error) {
@@ -43,8 +44,8 @@ export class ListsController extends BaseController {
 
   async create(req, res, next) {
     try {
-      const data = await listsService.create(req.body)
-      res.status(201).send(data)
+      req.body.creatorId = req.userInfo.id
+      res.send(await listsService.create(req.body))
     } catch (error) {
       next(error)
     }

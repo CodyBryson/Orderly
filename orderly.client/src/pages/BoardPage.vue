@@ -11,6 +11,7 @@
                class="form-control"
                placeholder="List Name..."
                aria-describedby="helpId"
+               v-model="state.newList.title"
         >
       </div>
       <button type="submit" class="btn btn-secondary">
@@ -25,7 +26,7 @@
 
 <script>
 import { reactive, computed, onMounted } from 'vue'
-
+import { listService } from '../services/ListService'
 import { AppState } from '../AppState'
 import { boardService } from '../services/BoardService'
 import { useRoute } from 'vue-router'
@@ -38,6 +39,7 @@ export default {
     const state = reactive({
       user: computed(() => AppState.user),
       activeBoard: computed(() => AppState.activeBoard),
+      newList: {},
       loaded: false
     })
     onMounted(async() => {
@@ -51,7 +53,15 @@ export default {
     })
     return {
       state,
-      board: computed(() => AppState.activeBoard)
+      board: computed(() => AppState.activeBoard),
+
+      async createList() {
+        try {
+          await listService.create(state.newList)
+        } catch (error) {
+          logger.error(error)
+        }
+      }
 
     }
   }

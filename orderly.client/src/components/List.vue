@@ -16,7 +16,7 @@
 <script>
 
 export default {
-  name: 'Board',
+  name: 'List',
   props: {
     boardProp: { type: Object, required: true }
   }
