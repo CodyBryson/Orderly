@@ -1,12 +1,12 @@
 <template>
   <router-link :to="{name: 'Board', params: {id: boardProp.id}}">
     <div class="Board">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">
+      <div class="card m-2">
+        <div class="card-body bg-dark">
+          <h4 class="card-title text-primary">
             {{ boardProp.title }}
           </h4>
-          <p class="card-text">
+          <p class="card-text text-secondary">
             {{ boardProp.createdAt }}
           </p>
         </div>

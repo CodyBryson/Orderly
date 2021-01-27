@@ -1,9 +1,12 @@
-// <template>
-  //   <div class="BoardPage" v-if="board.id">
-    //     <h1> This is the Board Page </h1>
-    //
+<template>
+  <div class="BoardPage d-flex flex-grow-1 bg-dark" v-if="board.id">
+    <h1 class="customFont text-primary m-2">
+      <u>{{ board.title }}</u>
+    </h1>
+    <div class="col">
+      <!--Lists go here-->
+    </div>
   </div>
-  //
 </template>
 
 <script>
@@ -43,5 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+.customFont{
+  font-family: 'Raleway', sans-serif;
+}
 </style>

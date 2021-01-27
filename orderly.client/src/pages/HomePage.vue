@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex-grow-1 d-flex justify-content-center bg-dark">
+  <div class="home flex-grow-1 d-flex flex-column justify-content-center bg-dark">
     <div class="row ml-2 mr-auto my-2">
       <div class="col">
         <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#createBoardModal">
@@ -8,10 +8,8 @@
         <CreateBoardModal />
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <Board v-for="board in state.boards" :key="board.id" :board-prop="board" />
-      </div>
+    <div class="row justify-content-center">
+      <Board v-for="board in state.boards" :key="board.id" :board-prop="board" />
     </div>
   </div>
 </template>
