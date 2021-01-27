@@ -27,8 +27,8 @@ export class ListsController extends BaseController {
   async getAll(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
-      const data = await listsService.find(req.query)
-      res.send(data)
+      const data = await listsService.getAll(req.query)
+      return res.send(data)
     } catch (error) {
       next(error)
     }

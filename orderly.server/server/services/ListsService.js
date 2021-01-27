@@ -6,6 +6,10 @@ class ListsService {
     return await dbContext.List.find(query)
   }
 
+  async getAll(query = {}) {
+    return await dbContext.List.find(query).populate('Board')
+  }
+
   async getOne(id) {
     const listFound = await dbContext.List.findById(id)
     if (!listFound) {
