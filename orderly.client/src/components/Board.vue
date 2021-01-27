@@ -3,6 +3,7 @@
     <div class="Board">
       <div class="card m-2">
         <div class="card-body bg-dark">
+          <i class="fas fa-times text-danger my-2"></i>
           <h4 class="card-title text-primary">
             {{ boardProp.title }}
           </h4>
