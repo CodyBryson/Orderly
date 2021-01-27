@@ -18,7 +18,7 @@
         Create List
       </button>
     </form>
-    <div class="row flex-row">
+    <div class="row flex-row boardContainer">
       <List v-for="list in state.lists" :key="list.id" :list-prop="list" />
     </div>
   </div>
@@ -76,5 +76,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 .customFont{
   font-family: 'Raleway', sans-serif;
+}
+.boardContainer{
+  overflow-x:auto;
 }
 </style>

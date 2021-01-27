@@ -23,6 +23,11 @@
           Create Task
         </button>
       </form>
+      <div class="d-flex display-block bg-light">
+        <button class="btn btn-danger ml-auto">
+          Delete List
+        </button>
+      </div>
     </div>
   </div>
 </template>
