@@ -21,5 +21,9 @@ class BoardService {
     AppState.boards.push(res.data)
     return res.data.id
   }
+
+  async deleteBoard(boardId) {
+    await api.delete('api/boards/' + boardId)
+  }
 }
 export const boardService = new BoardService()
